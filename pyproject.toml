@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "csv_ms_lector"
+version = "0.1.0"
+description = ""
+authors = ["@johan105 <johan@whaleandjaguar.co>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "^0.6.0"
+python-dotenv = "^0.21.0"
+uvicorn = "^0.19.0"
+fastapi = "^0.87.0"
+alembic = "^1.8.1"
+SQLAlchemy = "1.4.41"
+sqlmodel = "^0.0.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
