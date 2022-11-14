@@ -13,6 +13,8 @@ fastapi = "^0.87.0"
 alembic = "^1.8.1"
 SQLAlchemy = "1.4.41"
 sqlmodel = "^0.0.8"
+psycopg2 = "^2.9.5"
+asyncpg = "^0.27.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
