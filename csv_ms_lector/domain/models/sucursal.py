@@ -1,13 +1,16 @@
-from typing import Optional, TYPE_CHECKING
+from typing import Optional, TYPE_CHECKING, List
 
-from sqlmodel import Field
+from sqlmodel import Field, Relationship
 from sqlalchemy import Column, String, Integer
 
-from .base_model import BaseModel
+from .auxiliar_models import BaseModel
+
+if TYPE_CHECKING:
+    from ...domain.models.producto import Product
 
 class Subsidiary(BaseModel, table=True):
 
-    __table_name__ = "Subsidiary"
+    __table_name__ = "subsidiary"
     __table_args__ = {"schema": "public"}
 
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -30,4 +33,9 @@ class Subsidiary(BaseModel, table=True):
             String(length=16),
             nullable=True
         )
+    )
+
+    # Products relationship
+    products: Optional[List["Product"]] = Relationship(
+        back_populates="subsidiary"
     )

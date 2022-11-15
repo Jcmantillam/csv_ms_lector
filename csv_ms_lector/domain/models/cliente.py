@@ -1,10 +1,13 @@
 
-from typing import Optional, TYPE_CHECKING
+from typing import Optional, TYPE_CHECKING, List
 
-from sqlmodel import Field
+from sqlmodel import Field, Relationship
 from sqlalchemy import Column, String, Integer
 
-from .base_model import BaseModel
+if TYPE_CHECKING:
+    from ...domain.models.producto import Product
+
+from .auxiliar_models import BaseModel
 class Client(BaseModel, table=True):
 
     __tablename__ = "client"
@@ -32,4 +35,8 @@ class Client(BaseModel, table=True):
         )
     )
 
+    #Products relationship:
+    products: Optional[List["Product"]] = Relationship(
+        back_populates="client"
+    )
     
